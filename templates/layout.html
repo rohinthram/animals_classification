@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        {% if title %}
+            {{title}}
+        {% else %}
+            Animal Classifier
+        {% endif %}
+    </title>
+    <!-- add icon link -->
+    <link rel="icon" href="{{ url_for('static', filename='logo.jpg')}}" type="image/x-icon">
+
+    <!--Custom CSS Files-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+    <!--Custom JS Files-->
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <!--For https://ionic.io/ionicons-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+    <style>
+        {% block style %}
+        {% endblock style %}
+    </style>
+
+    <script>
+        {% block script %}
+        {% endblock script %}
+    </script>
+</head>
+
+<body style="background-color:#92abe0;">
+        
+    <div class="flash-message">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+        
+    {%block content%}
+    {%endblock content%}
+
+    <div class="footer">
+        <b>This page is created and maintained by <i>R.V.Rohinth Ram</i></b>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>API Has been stopped due to upper limit in API Calles, Contact owner to access/evaluate this project</h1>
+
+<h1>Animal Classifier</h1>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="img"/>
+    <input type="submit"/>
+</form>
+
+{% if output %}
+<h1> Prediction : {{ output }} </h1>
+
+<h3>
+    Received Payload
+    {{ log }}
+
+</h3>
+
+{% endif %}
+
+
+
+
+{% endblock content %}
